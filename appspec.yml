@@ -1,0 +1,16 @@
+version: 0.0
+os: linux
+files:
+  - source: index.html
+    destination: /var/www/html/
+hooks:
+  ApplicationStop:
+    - location: scripts/deregister_from_elb.sh
+    - location: scripts/stop_server.sh
+  BeforeInstall:
+    - location: scripts/install_dependencies.sh
+  ApplicationStart:
+    - location: scripts/start_server.sh
+    - location: scripts/register_with_elb.sh
+  ValidateService:
+    - location: scripts/verify_response.sh

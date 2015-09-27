@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Calculator</title>
+  <style>
+    html {
+      color: #111111;
+      font-family: Arial, sans-serif;
+      font-size: 1em;
+      line-height: 1.1;
+    }
+    
+    h1 {
+      font-size: 2em;
+      font-weight: heavy;
+    }
+
+    input {
+      text-align:right;
+    }
+
+    .error {
+      color: #dd0000;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>My Calculator</h1>
+    <input id="a" type="text" name="a" size="8" />
+    <select id="operation" name="operation">
+      <option value="add" selected>+</option> 
+      <option value="subtract">-</option>
+      <option value="multiply">*</option>
+      <option value="divide">/</option>
+    </select>
+    <input id="b" type="text" name="b" size="8" />
+    <button id="calculate" name="calculate">Calculate</button>
+    <span id="result"></span>
+  </div>
+  <script>
+    var aInput = document.getElementById("a");
+    var bInput = document.getElementById("b");
+    var operationSelect = document.getElementById("operation");
+    var calculateButton = document.getElementById("calculate");
+    var resultInput = document.getElementById("result");
+    calculateButton.addEventListener("click", function() {
+      var operation = operationSelect.options[operationSelect.selectedIndex].value;
+      var a = aInput.value;
+      var b = bInput.value;
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', encodeURI('http://54.175.182.20/' + operation + '?a=' + a + '&b=' + b));
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          result.innerHTML = xhr.responseText;
+        }
+        else {
+          result.innerHTML = '<span class="error">' + xhr.responseText + '<span>';
+         }
+      };
+      xhr.send();
+    });
+  </script>
+</body>
+</html>
+
