@@ -5,8 +5,8 @@
   <title>Calculator</title>
   <style>
     html {
-      color: #111;
-      background-color: red;
+      color: #fff;
+      background-color: #999a98;
       font-family: Arial, sans-serif;
       font-size: 1em;
       line-height: 1.1;
@@ -17,8 +17,21 @@
       font-weight: heavy;
     }
 
-    input {
+    input,select {
       text-align:right;
+      margin-bottom:5px;
+    }
+
+    #content {
+      width:800px;
+      margin:0px auto;
+      text-align:center;
+    }
+
+    #calculator {
+      width:130px;
+      margin:0px auto;
+      text-align: right;
     }
 
     .error {
@@ -27,18 +40,19 @@
   </style>
 </head>
 <body>
-  <div>
-    <h1>My Calculator</h1>
-    <input id="a" type="text" name="a" size="8" />
-    <select id="operation" name="operation">
-      <option value="add" selected>+</option> 
-      <option value="subtract">-</option>
-      <option value="multiply">*</option>
-      <option value="divide">/</option>
-    </select>
-    <input id="b" type="text" name="b" size="8" />
-    <button id="calculate" name="calculate">Calculate</button>
-    &nbsp;
+  <div id="content">
+    <h1>Simple Calculator Service</h1>
+    <div id="calculator">
+      <input id="a" type="text" name="a" size="8" /><br/>
+      <select id="operation" name="operation">
+	<option value="add" selected>+</option> 
+	<option value="subtract">-</option>
+	<option value="multiply">*</option>
+	<option value="divide">/</option>
+      </select><br/>
+      <input id="b" type="text" name="b" size="8" /><br/>
+      <button id="calculate" name="calculate">Calculate</button><br/><br/>
+    </div>
     <span id="result"></span>
   </div>
   <script>
