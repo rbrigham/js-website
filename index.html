@@ -68,7 +68,7 @@
       var a = aInput.value;
       var b = bInput.value;
       var xhr = new XMLHttpRequest();
-      xhr.open('GET', encodeURI('http://54.175.182.20/' + operation + '?a=' + a + '&b=' + b));
+      xhr.open('GET', encodeURI('http://simple-calculator-service-prod-673003036.us-west-2.elb.amazonaws.com/' + operation + '?a=' + a + '&b=' + b));
       xhr.onload = function() {
         if (xhr.status === 200) {
           result.innerHTML = xhr.responseText;
