@@ -5,23 +5,22 @@
   <title>Calculator</title>
   <style>
     html {
-      /*color: #fff;
-      background-color: #49a8f2; */
       color: #000;
-      background-color: #999a98;
+      background-color: #fff;
       font-family: Arial, sans-serif;
-      font-size: 1em;
+      font-size: 2em;
       line-height: 1.1;
     }
     
     h1 {
       font-size: 2em;
-      font-weight: heavy;
+      font-weight: normal;
     }
 
-    input,select {
+    input,select,button {
       text-align:right;
-      margin-bottom:5px;
+      margin-bottom:15px;
+      font-size: 0.7em;
     }
 
     #content {
@@ -31,7 +30,7 @@
     }
 
     #calculator {
-      width:130px;
+      width:200px;
       margin:0px auto;
       text-align: right;
     }
@@ -39,10 +38,18 @@
     .error {
       color: #dd0000;
     }
+
+    img {
+      display:block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
   <div id="content">
+    <img src="https://s3-us-west-2.amazonaws.com/simple-calculator-website-demo/binary.png"/>
     <h1>Simple Calculator Service</h1>
     <div id="calculator">
       <input id="a" type="text" name="a" size="8" /><br/>
